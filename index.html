@@ -13,25 +13,29 @@
 <body>
 
     <div id="app">
-        <input type="text" v-model="message2"></input>
-        <p v-html="
-            message1.slice(0,7) +
-            message2 +
-            message1.slice(12)
-            "></p>
+        
+        <p v-html="lumos(message)"></p>
     </div>
-    <script> 
+    <script>
+        function cast(emoji){
+            if(!emoji){
+                emoji = "¯\\_(ツ)_/¯"
+            }
+            return function(message){
+                return emoji + message + emoji
+            }
+        }
        var app = new Vue(
            {
                el: "#app",
                data:{
-                   message1:"hello, world!",
-                   message2: "Vue"
+                   message: "wizzard"
+               },
+               methods:{
+                   lumos: "lumos"
                }
            }
        )
-        
-
     </script>
 </body>
 
